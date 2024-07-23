@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Management Details</title>
     <style>
+        h1,h2,h3,h4{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
@@ -23,6 +28,46 @@
         .btn {
             margin-top: 10px;
         }
+        .register{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        form{
+            width:50%;
+            background-color: rgb(214, 204, 204);
+            display:flex;
+            flex-direction:column;
+        }
+
+        .user_details{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        label{
+            padding-left:12px;
+            margin:12px;
+
+        }
+        input{
+            border-radius:5px;
+        }
+        .btn{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            margin:3px;
+        }
+        button{
+            width:100px;
+            padding:5px;
+            border :2px solid black;
+            border-radius:8px;
+        }
+        button:hover {
+            background-color: grey;
+        }
     </style>
 </head>
 <body>
@@ -30,12 +75,19 @@
         <h2>Hospital Management Details</h2>
         <div class="register">
             <form name="form1" onsubmit="return submitForm()">
-                <label for="patient_id">Patient Id</label>
-                <input type="number" name="patient_id" id="patient_id" required/>
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" required/>
-                <label for="disease">Disease</label>
-                <input type="text" name="disease" id="disease" required/>
+                <div class="user_details">
+                    <label for="patient_id">Patient Id</label>
+                    <input type="number" name="patient_id" id="patient_id" required/>
+                </div>
+                <div class="user_details">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" required/>
+                </div>
+                <div class="user_details">
+                    <label for="disease">Disease</label>
+                    <input type="text" name="disease" id="disease" required/>
+                </div>
+               
                 <div class="btn">
                     <button type="submit">Submit</button>
                 </div>
@@ -50,15 +102,15 @@
 
     <script>
         function submitForm() {
-            var id = document.getElementById("patient_id").value;
-            var name = document.getElementById("name").value;
-            var disease = document.getElementById("disease").value;
+            var id = document.form1.patient_id.value;
+            var name = document.form1.name.value;
+            var disease = document.form1.disease.value;
 
             var array = [id, name, disease];
 
-            document.getElementById("display_id").innerHTML = "ID: " + array[0];
-            document.getElementById("display_name").innerHTML = "Name: " + array[1];
-            document.getElementById("display_disease").innerHTML = "Disease: " + array[2];
+            console.log(array[0]);
+            console.log(array[1]);
+            console.log(array[2]);
 
             return false; // Prevent form submission
         }
