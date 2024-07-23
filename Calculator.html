@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operations</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background: linear-gradient(to right, #f7f8fc, #e2e7f0);
+        }
+        
+        .container {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        button.operation-button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        
+        button.operation-button:hover {
+            background-color: #0056b3;
+        }
+        
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <h2>Welcome to Arithmatic Calculator</h2>
+        
+    </div>
+    <div class="container">
+        <h1>Arithmetic Operations</h1>
+        <button class="operation-button" onclick="performOperation('add')">Addition</button>
+        <button class="operation-button" onclick="performOperation('subtract')">Subtraction</button>
+        <button class="operation-button" onclick="performOperation('multiply')">Multiplication</button>
+        <button class="operation-button" onclick="performOperation('divide')">Division</button>
+        <div id="result"></div>
+    </div>
+<script >
+        function performOperation(operation) {
+            let num1 = promptNumber("Enter the first number:");
+            if (num1 === null) return;
+        
+            let num2 = promptNumber("Enter the second number:");
+            if (num2 === null) return;
+        
+            let result;
+        
+            switch (operation) {
+                case 'add':
+                    result = add(num1, num2);
+                    break;
+                case 'subtract':
+                    result = subtract(num1, num2);
+                    break;
+                case 'multiply':
+                    result = multiply(num1, num2);
+                    break;
+                case 'divide':
+                    result = divide(num1, num2);
+                    break;
+                default:
+                    result = "Invalid operation";
+            }
+        
+            displayResult(result);
+        }
+        
+        function promptNumber(message) {
+            let num;
+            while (true) {
+                num = prompt(message);
+                if (num === null) return null; // User pressed cancel
+                if (!isNaN(num) && num.trim() !== "") return parseFloat(num);
+                alert("Please enter a valid number.");
+            }
+        }
+        
+        function add(a, b) {
+            return a + b;
+        }
+        
+        function subtract(a, b) {
+            return a - b;
+        }
+        
+        function multiply(a, b) {
+            return a * b;
+        }
+        
+        function divide(a, b) {
+            if (b === 0) {
+                return "Error: Division by zero";
+            }
+            return a / b;
+        }
+        
+        function displayResult(result) {
+            document.getElementById("result").innerText = `Result: ${result}`;
+        }
+        
+    </script>
+</body>
+</html>
