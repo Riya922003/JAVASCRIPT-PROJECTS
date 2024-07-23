@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        .btn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hospital Management Details</h2>
+        <div class="register">
+            <form name="form1" onsubmit="return submitForm()">
+                <label for="patient_id">Patient Id</label>
+                <input type="number" name="patient_id" id="patient_id" required/>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required/>
+                <label for="disease">Disease</label>
+                <input type="text" name="disease" id="disease" required/>
+                <div class="btn">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            <div id="get_details">
+                <div class="id" id="display_id"></div>
+                <div class="name" id="display_name"></div>
+                <div class="disease" id="display_disease"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            var id = document.getElementById("patient_id").value;
+            var name = document.getElementById("name").value;
+            var disease = document.getElementById("disease").value;
+
+            var array = [id, name, disease];
+
+            document.getElementById("display_id").innerHTML = "ID: " + array[0];
+            document.getElementById("display_name").innerHTML = "Name: " + array[1];
+            document.getElementById("display_disease").innerHTML = "Disease: " + array[2];
+
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>
