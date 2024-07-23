@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f7f8fc;
+            padding: 20px;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .train {
+            background-color: rgb(187, 182, 182);
+            border: 2px solid black;
+           display:flex;
+           align-items:center;
+           justify-content:center;
+           flex-direction:column;
+           margin:12px;
+            border-radius: 8px;
+            color: white;
+        }
+        .train_name{
+            color:black;
+            padding:0px;
+          background-color: antiquewhite;
+            height:10%;
+        }
+        .about_train{
+            height:20%;
+            color:black;
+        }
+        .train_name, .train_details {
+            width: 100%;
+        }
+        .train_details{
+            padding:12px;
+          
+        }
+      
+        .form-group {
+            margin: 10px 0;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .form-group.inline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .form-group.inline > * {
+            flex: 1;
+            margin: 0 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+         
+            color: white;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .btn1, .btn2 {
+            border: 2px solid black;
+            border-radius: 12px;
+            background-color: white;
+            color: black;
+        }
+        .btn1:hover, .btn2:hover {
+            background-color: #ddd;
+        }
+        #ticket-details {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .user-details{
+            margin:12px;
+            padding:12px;
+        }
+        .btn{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Book Your Train Ticket</h2>
+    <div class="train">
+        <div class="train_name">Train A</div>
+        <div class="about_train">From City A to City B
+        </div>
+        <div class="train_details">
+            <div class="form-group inline">
+                <div>
+                    <label for="seat">Select Seat</label>
+                    <select id="seat">
+                        <option value="Window">Window</option>
+                        <option value="Aisle">Aisle</option>
+                        <option value="Middle">Middle</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="food">Select Food</label>
+                    <select id="food">
+                        <option value="Vegetarian">Vegetarian</option>
+                        <option value="Non-Vegetarian">Non-Vegetarian</option>
+                        <option value="Vegan">Vegan</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group inline">
+            <div class="user-details">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            <div class="user-details">
+                <label for="age">Age</label>
+                <input type="number" id="age" placeholder="Enter your age">
+            </div>
+            <div class="user-details">
+                <label for="sex">Sex</label>
+                <select id="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn">
+            <button onclick="bookTicket('Train A')">Book Ticket</button>
+            <a href="view.html"><button>View Ticket</button></a>
+        </div>
+        <div id="ticket-details"></div>
+        
+    </div>
+
+
+
+<!-- Repeat for other trains -->
+<div class="train">
+    <div class="train_name">Train B</div>
+    <div class="about_train">From City D to City F
+    </div>
+    <div class="train_details">
+        <div class="form-group inline">
+            <div>
+                <label for="seat">Select Seat</label>
+                <select id="seat">
+                    <option value="Window">Window</option>
+                    <option value="Aisle">Aisle</option>
+                    <option value="Middle">Middle</option>
+                </select>
+            </div>
+            <div>
+                <label for="food">Select Food</label>
+                <select id="food">
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Non-Vegetarian">Non-Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group inline">
+        <div class="user-details">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <div class="user-details">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter your age">
+        </div>
+        <div class="user-details">
+            <label for="sex">Sex</label>
+            <select id="sex">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+    <div class="btn">
+        <button onclick="bookTicket('Train A')">Book Ticket</button>
+        <button onclick="viewTicket()">View Ticket</button>
+    </div>
+    <div id="ticket-details"></div>
+</div>
+
+
+
+
+<div class="train">
+    <div class="train_name">Train C</div>
+    <div class="about_train">From city U to city F 
+    </div>
+    <div class="train_details">
+        <div class="form-group inline">
+            <div >
+                <label for="seat">Select Seat</label>
+                <select id="seat">
+                    <option value="Window">Window</option>
+                    <option value="Aisle">Aisle</option>
+                    <option value="Middle">Middle</option>
+                </select>
+            </div>
+            <div >
+                <label for="food">Select Food</label>
+                <select id="food">
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Non-Vegetarian">Non-Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group inline">
+        <div class="user-details">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <div class="user-details">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter your age">
+        </div>
+        <div class="user-details">
+            <label for="sex">Sex</label>
+            <select id="sex">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+    <div class="btn">
+        <button onclick="bookTicket('Train A')">Book Ticket</button>
+        <button onclick="viewTicket()">View Ticket</button>
+    </div>
+    <div id="ticket-details"></div>
+</div>
+
+
+
+<div class="train">
+    <div class="train_name">Train D</div>
+    <div class="about_train">From city J to city K 
+    </div>
+    <div class="train_details">
+        <div class="form-group inline">
+            <div >
+                <label for="seat">Select Seat</label>
+                <select id="seat">
+                    <option value="Window">Window</option>
+                    <option value="Aisle">Aisle</option>
+                    <option value="Middle">Middle</option>
+                </select>
+            </div>
+            <div >
+                <label for="food">Select Food</label>
+                <select id="food">
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Non-Vegetarian">Non-Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group inline">
+        <div class="user-details">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <div class="user-details">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter your age">
+        </div>
+        <div class="user-details">
+            <label for="sex">Sex</label>
+            <select id="sex">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+    <div class="btn">
+        <button onclick="bookTicket('Train A')">Book Ticket</button>
+        <button onclick="viewTicket()">View Ticket</button>
+    </div>
+    <div id="ticket-details"></div>
+</div>
+
+
+
+<div class="train">
+    <div class="train_name">Train E</div>
+    <div class="about_train">From city R to city U 
+    </div>
+    <div class="train_details">
+        <div class="form-group inline">
+            <div >
+                <label for="seat">Select Seat</label>
+                <select id="seat">
+                    <option value="Window">Window</option>
+                    <option value="Aisle">Aisle</option>
+                    <option value="Middle">Middle</option>
+                </select>
+            </div>
+            <div >
+                <label for="food">Select Food</label>
+                <select id="food">
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Non-Vegetarian">Non-Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group inline">
+        <div class="user-details">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <div class="user-details">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter your age">
+        </div>
+        <div class="user-details">
+            <label for="sex">Sex</label>
+            <select id="sex">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+    <div class="btn">
+        <button onclick="bookTicket('Train A')">Book Ticket</button>
+        <a href="view.html"><button>View Ticket</button></a>
+    </div>
+    
+</div>
+
+
+
+
+<div class="train">
+    <div class="train_name">Train F</div>
+    <div class="about_train">From city H to city Y 
+    </div>
+    <div class="train_details">
+        <div class="form-group inline">
+            <div >
+                <label for="seat">Select Seat</label>
+                <select id="seat">
+                    <option value="Window">Window</option>
+                    <option value="Aisle">Aisle</option>
+                    <option value="Middle">Middle</option>
+                </select>
+            </div>
+            <div >
+                <label for="food">Select Food</label>
+                <select id="food">
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Non-Vegetarian">Non-Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group inline">
+        <div class="user-details">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <div class="user-details">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter your age">
+        </div>
+        <div class="user-details">
+            <label for="sex">Sex</label>
+            <select id="sex">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+    <div class="btn">
+        <button onclick="bookTicket('Train A')">Book Ticket</button>
+        <button onclick="viewTicket()">View Ticket</button>
+    </div>
+    <div id="ticket-details"></div>
+</div>
+
+
+
+
+<div class="train">
+    <div class="train_name">Train F </div>
+    <div class="about_train">From city K to City P 
+    </div>
+    <div class="train_details">
+        <div class="form-group inline">
+            <div >
+                <label for="seat">Select Seat</label>
+                <select id="seat">
+                    <option value="Window">Window</option>
+                    <option value="Aisle">Aisle</option>
+                    <option value="Middle">Middle</option>
+                </select>
+            </div>
+            <div >
+                <label for="food">Select Food</label>
+                <select id="food">
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Non-Vegetarian">Non-Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group inline">
+        <div class="user-details">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <div class="user-details">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter your age">
+        </div>
+        <div class="user-details">
+            <label for="sex">Sex</label>
+            <select id="sex">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+    <div class="btn">
+        <button onclick="bookTicket('Train A')">Book Ticket</button>
+        <button onclick="viewTicket()">View Ticket</button>
+    </div>
+    <div id="ticket-details"></div>
+</div>
+</div>
+
+    <script src="railway.js"></script>
+</body>
+</html>
