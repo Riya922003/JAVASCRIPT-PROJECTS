@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .intro{
+            width:100%;
+            height:100vh;
+        }
+       
+        h2,h3,h4,h4{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .text{
+
+        }
+        .about{
+            padding:12px;
+        }
+        .image{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .text_box{
+            display:flex;
+            align-items:center;
+            border:2px solid black;
+            padding-bottom:12px;
+            margin:12px;
+            
+        }
+        .intro_image{
+            width:300px;
+           
+
+        }
+        .main{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container {
+            width:80%;
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 8px;
+        }
+        .input-group {
+            margin: 20px 0;
+        }
+        .input-group input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+          
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .input-group{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+       .btn{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+       }
+       #result{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+       }
+    </style>
+</head>
+<body>
+    <div class="into">
+        <h2>Welcome to fibbonacci series Calculator using Javascript</h2>
+        <h3>What is Fibbonacci series</h3>
+        <div class="about">
+            <div class="text_box">
+                <p class="text" >Ever wondered about the cool math behind the Fibonacci series? This simple pattern has a remarkable presence in nature, from the arrangement of leaves on plants to the spirals of seashells. We’re diving into this Fibonacci Series sequence. It’s not just math, it’s in art, nature, and more! Let’s discover the secrets of the Fibonacci series together.</p>
+            </div>
+           
+            <div class="image">
+                <img class="intro_image" src="FIBONACCI-SERIES.png">
+            </div>
+    </div>
+    </div>
+       <div class="main">
+        <div class="container">
+            <h2>Fibonacci Series Calculator</h2>
+            <div class="input-group">
+                <input type="number" id="terms" placeholder="Enter number of terms">
+            </div>
+            <div class="btn">
+                <button onclick="generateFibonacci()">Generate Series</button>
+            </div>
+          
+            <div id="result"></div>
+        </div>
+       </div>
+       
+
+
+    <script>
+        function generateFibonacci() {
+            let terms = parseInt(document.getElementById('terms').value);
+            if (isNaN(terms) || terms <= 0) {
+                document.getElementById('result').innerText = "Please enter a valid positive number.";
+                return;
+            }
+
+            let fibonacciSeries = [];
+            let a = 0, b = 1, nextTerm;
+
+            for (let i = 1; i <= terms; i++) {
+                fibonacciSeries.push(a);
+                nextTerm = a + b;
+                a = b;
+                b = nextTerm;
+            }
+
+            document.getElementById('result').innerText = `Fibonacci Series: ${fibonacciSeries.join(', ')}`;
+        }
+    </script>
+</body>
+</html>
