@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Natural Numbers</title>
+</head>
+<body>
+    <h1>Sum of Natural Numbers</h1>
+    <p>Enter a number: <input type="number" id="numberInput"></p>
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <p id="result"></p>
+
+    <script >
+        // Function to calculate sum of natural numbers using recursion
+function sumOfNaturalNumbers(n) {
+    if (n <= 0) {
+        return 0;
+    } else {
+        return n + sumOfNaturalNumbers(n - 1);
+    }
+}
+
+// Function to get input value and display the result
+function calculateSum() {
+    const number = parseInt(document.getElementById('numberInput').value);
+    const result = sumOfNaturalNumbers(number);
+    document.getElementById('result').textContent = `The sum of natural numbers up to ${number} is: ${result}`;
+}
+
+    </script>
+</body>
+</html>

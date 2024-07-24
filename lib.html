@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Details</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <h1>Library Details</h1>
+    <table id="libraryTable" class="display">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Library data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Library information in JSON format
+const library = [
+{
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "year": 1960,
+    "genre": "Fiction"
+},
+{
+    "title": "1984",
+    "author": "George Orwell",
+    "year": 1949,
+    "genre": "Dystopian"
+},
+{
+    "title": "Moby-Dick",
+    "author": "Herman Melville",
+    "year": 1851,
+    "genre": "Adventure"
+}
+];
+
+// Function to display library information in a table using DataTables plugin
+function displayLibrary(library) {
+const tableBody = $("#libraryTable tbody");
+
+library.forEach(book => {
+    const row = $("<tr></tr>");
+    row.append($("<td></td>").text(book.title));
+    row.append($("<td></td>").text(book.author));
+    row.append($("<td></td>").text(book.year));
+    row.append($("<td></td>").text(book.genre));
+
+    tableBody.append(row);
+});
+
+// Initialize DataTables plugin
+$('#libraryTable').DataTable();
+}
+
+// Call the function to display the library details
+$(document).ready(function() {
+displayLibrary(library);
+});
+
+    </script>
+</body>
+</html>

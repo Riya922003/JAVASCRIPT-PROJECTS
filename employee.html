@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Employee Details</h1>
+    <table id="employeeTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Position</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Employee data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Employee information in JSON format
+const employees = [
+{
+    "name": "Alice Johnson",
+    "age": 30,
+    "position": "Manager",
+    "department": "Sales"
+},
+{
+    "name": "Bob Brown",
+    "age": 25,
+    "position": "Developer",
+    "department": "IT"
+},
+{
+    "name": "Charlie Davis",
+    "age": 28,
+    "position": "Analyst",
+    "department": "Finance"
+}
+];
+
+// Function to display employee information in a table using jQuery
+function displayEmployees(employees) {
+const tableBody = $("#employeeTable tbody");
+
+employees.forEach(employee => {
+    const row = $("<tr></tr>");
+    row.append($("<td></td>").text(employee.name));
+    row.append($("<td></td>").text(employee.age));
+    row.append($("<td></td>").text(employee.position));
+    row.append($("<td></td>").text(employee.department));
+
+    tableBody.append(row);
+});
+}
+
+// Call the function to display the employees
+$(document).ready(function() {
+displayEmployees(employees);
+});
+
+    </script>
+</body>
+</html>
