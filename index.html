@@ -3,27 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="author" content="Rohan Gautam">
+
+    <title>INTERNET AND WEB PROGRAMMING LAB PROGRAMS - 2</title>
+
     <style>
-            .text{
-                color:black;
-            }
-        .links :hover{
-            COLOR:red;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        main {
+            width: 80%;
+            max-width: 600px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        li:hover {
+            background-color: rgb(219, 218, 218);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+        }
+        li a:hover {
+            color: #007BFF;
         }
     </style>
 </head>
+
 <body>
-    <h1>This is the home page to access all the projects</h1>
-    <div class="links">
-        <a class="text" href="Calculator.html">Simple calculator using javascript</a><br>
-        <a class="text" href="fibb.html">Fibbonacci series using javascript</a><br>
-        <a class="text" href="hospital.html">Hospital management page using javascript arrays concept</a>  <br>
-        <a  class="text"  href="railway.html">Railways application using javascript arrays concept</a><br>
-        <a class="text" href="tic_tac_toe.html">Tic tac toe game implementation using javacsript </a><br>
-         <a class="text" href="mutiply.html">Multiplication table implementation using javacsript </a><br>
-          <a class="text" href="inventory.html">Inventory Analysis using javascript arrays  </a><br>
-    </div>
-   
+    <main>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Calculator.html">1. Calculator</a></li>
+            <li><a href="fibb.html">2. Fibonacci Series</a></li>
+            <li><a href="multiply.html">3. Multiplication Table</a></li>
+            <li><a href="railway.html">4. Railway Ticket Reservation</a></li>
+            <li><a href="inventory.html">4. Inventory Details</a></li>
+            <li><a href="hospital.html">4. Hospital Management Details</a></li>
+            <li><a href="tic_tac_toe.html">5. Tic-Tac-Toe</a></li>
+        </ul>
+    </main>
 </body>
 </html>
