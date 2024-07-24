@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Transpose</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        form {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        
+        input[type="number"] {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        
+        #matrix-input {
+            margin-bottom: 10px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        #result {
+            margin-top: 20px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        
+        table, th, td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Matrix Transpose Finder</h1>
+    <form id="matrix-form">
+        <label for="rows">Number of Rows:</label>
+        <input type="number" id="rows" name="rows" required>
+        <label for="cols">Number of Columns:</label>
+        <input type="number" id="cols" name="cols" required>
+        <div id="matrix-input"></div>
+        <button type="button" onclick="generateMatrixInput()">Generate Matrix Input</button>
+        <button type="submit">Find Transpose</button>
+    </form>
+    <div id="result"></div>
+    <script >
+        document.getElementById('matrix-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            findTranspose();
+        });
+        
+        function generateMatrixInput() {
+            const rows = document.getElementById('rows').value;
+            const cols = document.getElementById('cols').value;
+            const matrixInputDiv = document.getElementById('matrix-input');
+            
+            matrixInputDiv.innerHTML = ''; // Clear previous inputs
+        
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    const input = document.createElement('input');
+                    input.type = 'number';
+                    input.id = `matrix-${i}-${j}`;
+                    input.placeholder = `R${i+1}C${j+1}`;
+                    matrixInputDiv.appendChild(input);
+                }
+                matrixInputDiv.appendChild(document.createElement('br'));
+            }
+        }
+        
+        function findTranspose() {
+            const rows = document.getElementById('rows').value;
+            const cols = document.getElementById('cols').value;
+            const matrix = [];
+        
+            for (let i = 0; i < rows; i++) {
+                const row = [];
+                for (let j = 0; j < cols; j++) {
+                    const value = document.getElementById(`matrix-${i}-${j}`).value;
+                    row.push(Number(value));
+                }
+                matrix.push(row);
+            }
+        
+            const transpose = [];
+            for (let i = 0; i < cols; i++) {
+                const row = [];
+                for (let j = 0; j < rows; j++) {
+                    row.push(matrix[j][i]);
+                }
+                transpose.push(row);
+            }
+        
+            displayResult(transpose);
+        }
+        
+        function displayResult(transpose) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<h2>Transpose of the Matrix:</h2>';
+            
+            const table = document.createElement('table');
+            transpose.forEach(row => {
+                const tr = document.createElement('tr');
+                row.forEach(cell => {
+                    const td = document.createElement('td');
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+                table.appendChild(tr);
+            });
+            
+            resultDiv.appendChild(table);
+        }
+        
+    </script>
+</body>
+</html>

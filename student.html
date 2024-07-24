@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Information</h1>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Grade</th>
+                <th>Major</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Student data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script >
+        // Student information in JSON format
+const students = [
+{
+    "name": "John Doe",
+    "age": 20,
+    "grade": "A",
+    "major": "Computer Science"
+},
+{
+    "name": "Jane Smith",
+    "age": 22,
+    "grade": "B",
+    "major": "Mathematics"
+},
+{
+    "name": "Sam Johnson",
+    "age": 21,
+    "grade": "A",
+    "major": "Physics"
+}
+];
+
+// Function to display student information in a table
+function displayStudents(students) {
+const tableBody = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+
+students.forEach(student => {
+    const row = tableBody.insertRow();
+
+    const nameCell = row.insertCell(0);
+    const ageCell = row.insertCell(1);
+    const gradeCell = row.insertCell(2);
+    const majorCell = row.insertCell(3);
+
+    nameCell.textContent = student.name;
+    ageCell.textContent = student.age;
+    gradeCell.textContent = student.grade;
+    majorCell.textContent = student.major;
+});
+}
+
+// Call the function to display the students
+displayStudents(students);
+
+    </script>
+</body>
+</html>
